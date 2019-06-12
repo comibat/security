@@ -511,6 +511,9 @@ You can sometimes access the ldap using a anonymous login, or with other words n
 
 ```
 ldapsearch -h 192.168.1.101 -p 389 -x -b "dc=mywebsite,dc=com"
+
+# if you know username and password:
+ldapsearch -H ldap://10.1.2.3 -b "dc=example,dc=com" -U username -W
 ```
 
 
