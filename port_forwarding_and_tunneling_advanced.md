@@ -113,7 +113,7 @@ The ```-R``` flag allows you to bind port on the server side. All connections to
 
 ## Rpivot
 
-This is my favorite method of traversing NAT connections. Rpivot (https://github.com/comibat/rpivot) is a reverse socks proxy tool that allows you to tunnel traffic via socks proxy. It connects back to your machine and binds a socks proxy on it. It works just like ```ssh -D``` but in opposite direction. Server side:
+This is my favorite method of traversing NAT connections. [Rpivot](https://github.com/comibat/rpivot) is a reverse socks proxy tool that allows you to tunnel traffic via socks proxy. It connects back to your machine and binds a socks proxy on it. It works just like ```ssh -D``` but in opposite direction. Server side:
 
 ```python server.py --proxy-port 1080 --server-port 9999 --server-ip 0.0.0.0```
 
