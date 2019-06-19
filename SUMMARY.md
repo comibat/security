@@ -100,6 +100,7 @@
   * [Online Password Cracking](online_password_cracking.md)
   * [Pass the Hash - Reusing Hashes](pass_the_hash_-_reusing_hashes.md)
 * [Pivoting - Port forwarding - Tunneling](port_forwarding_and_tunneling.md)
+  * [Pivoting - Port forwarding - Tunneling - Advanced](port_forwarding_and_tunneling_advanced.md)
 * [Network traffic analysis](network_traffic.md)
   * [Arp-spoofing](arp-spoofing.md)
     * [SSL-strip](ssl-strip.md)
