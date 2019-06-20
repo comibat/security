@@ -55,7 +55,6 @@ dir /s *pass* == *cred* == *vnc* == *.config*
 
 # Find all passwords in all files.
 findstr /spin "password" *.*
-findstr /spin "password" *.*
 ```
 
 ### In Files
