@@ -81,6 +81,7 @@
   * [Editing Exploits](editing-exploits.md)
   * [Compiling exploits](compiling_exploits.md)
     * [Compiling windows exploits - old content](compiling-windows-exploits.md)
+  * [Code execution](code_execution.md)
 * [Post Exploitation](post_exploitation.md)
   * [Spawning Shells](spawning_shells.md)
   * [Meterpreter for Post-Exploitation](getting_meterpreter_shell.md)
