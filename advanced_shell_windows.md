@@ -46,7 +46,7 @@ msf exploit(windows/misc/hta_server) > exploit
 ```
 Now run the malicious code through mshta.exe on the victim’s machine (vulnerable to RCE) to obtain meterpreter sessions.
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_1.png)
+![](images/reverse_shell_windows_1.png)
 
 Once you will execute the malicious hta file on the remote machine with the help of mshta.exe, you get the reverse connection at your local machine (Kali Linux).
 
