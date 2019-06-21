@@ -76,6 +76,7 @@
   * [Social Engineering - Phishing](social_engineering_-_phishing.md)
   * [Default Layout of Apache on Different Versions](default_layout_apache_on_different_versiont.md)
   * [Shells](reverse-shell.md)
+    * [Advanced Shells - Windows](advanced_shell_windows.md)
   * [Webshell](webshell.md)
   * [Generate Shellcode](create_shellcode.md)
   * [Editing Exploits](editing-exploits.md)
