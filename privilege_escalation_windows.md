@@ -471,4 +471,4 @@ run post/windows/gather/checkvm
 [http://www.harmj0y.net/blog/powershell/powerup-a-usage-guide/](http://www.harmj0y.net/blog/powershell/powerup-a-usage-guide/)  
 [https://github.com/PowerShellEmpire/PowerTools/tree/master/PowerUp](https://github.com/PowerShellEmpire/PowerTools/tree/master/PowerUp)  
 [http://pwnwiki.io/\#!privesc/windows/index.md](http://pwnwiki.io/#!privesc/windows/index.md)
-
+[https://github.com/comibat/lpeworkshop](https://github.com/comibat/lpeworkshop)
