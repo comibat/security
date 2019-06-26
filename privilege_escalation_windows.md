@@ -183,11 +183,9 @@ cat schtask.txt | grep "SYSTEM\|Task To Run" | grep -B 1 SYSTEM
 If we see some interesting scheduled tasks, we need to check if we can overwrite the .exe in order to run our payload to escalate privileges. To check the permissions of file/folder we can use **accesscheck** tools from sysinternals.
 
 ```
-accesschk.exe /accepteula -dqv "C:\Temp"
-accesschk64.exe /accepteula -dqv "C:\Temp"
+accesschk.exe -dqv "C:\Temp"
+accesschk64.exe -dqv "C:\Temp"
 ```
-
-**NOTE:** important here is not to forget _**/accepteula**_ switch; otherwise, it'll start GUI which is not under our control.
 
 
 ## Weak Service Permissions
