@@ -490,7 +490,7 @@ run post/windows/gather/checkvm
 
 ---
 
-[Yet another priv esc](https://github.com/frizb/Windows-Privilege-Escalation)
+[https://github.com/frizb/Windows-Privilege-Escalation](https://github.com/frizb/Windows-Privilege-Escalation)
 
 [http://travisaltman.com/windows-privilege-escalation-via-weak-service-permissions/](http://travisaltman.com/windows-privilege-escalation-via-weak-service-permissions/)  
 [http://www.fuzzysecurity.com/tutorials/16.html](http://www.fuzzysecurity.com/tutorials/16.html)  
