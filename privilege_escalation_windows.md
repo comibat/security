@@ -488,8 +488,9 @@ run post/windows/gather/checkvm
 
 [OSCP-Methodology-EnVX7VSiNGZ2K2QxCZD7Q](https://paper.dropbox.com/doc/OSCP-Methodology-EnVX7VSiNGZ2K2QxCZD7Q)
 
-
 ---
+
+[Yet another priv esc](https://github.com/frizb/Windows-Privilege-Escalation)
 
 [http://travisaltman.com/windows-privilege-escalation-via-weak-service-permissions/](http://travisaltman.com/windows-privilege-escalation-via-weak-service-permissions/)  
 [http://www.fuzzysecurity.com/tutorials/16.html](http://www.fuzzysecurity.com/tutorials/16.html)  
