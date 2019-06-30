@@ -349,6 +349,30 @@ This attack is explained here:
 
 There is also a metasploit module for this is: exploit/windows/local/trusted\_service\_path
 
+## DLL hijacking
+
+Most of the executables are using dll. If a service that we're attacking olso uses dll, there is a chance to add or replace existing dll with a malitious one and get the privilege escalation.
+
+To check which dlls are used by exe, first copy the exe to kali and use **objdump** tool from **linux**:
+
+```bash
+comibat@randomname:/tmp/00$ objdump -p depends.exe | grep ".dll"
+	DLL Name: ADVAPI32.dll
+	DLL Name: KERNEL32.dll
+	DLL Name: GDI32.dll
+	DLL Name: USER32.dll
+	DLL Name: MFC42.dll
+	DLL Name: msvcrt.dll
+	4af0a	  109  __dllonexit
+	DLL Name: COMDLG32.dll
+	DLL Name: COMCTL32.dll
+	DLL Name: SHELL32.dll
+```
+
+Now we can check one by one (on windows system) where it is located and if we can add/replace them.
+More about this techniques in **section DLL Hijacking**, found here: [https://pentest.blog/windows-privilege-escalation-methods-for-pentesters/](https://pentest.blog/windows-privilege-escalation-methods-for-pentesters/)
+
+
 ## Vulnerable Drivers
 
 Some driver might be vulnerable. I don't know how to check this in an efficient way.
