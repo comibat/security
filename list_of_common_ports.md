@@ -523,7 +523,9 @@ Port 636 is used for SSL.
 
 There are also metasploit modules for Windows 2000 SP4 and Windows Xp SP0/SP1
 
-[nmap script examples](https://bitvijays.github.io/LFF-IPS-P2-VulnerabilityAnalysis.html#ldap-port-389)
+[nmap script examples (nmap-rootdse, nmap-search, nmap-brute)](https://bitvijays.github.io/LFF-IPS-P2-VulnerabilityAnalysis.html#ldap-port-389)
+
+[brute-force using Patator](https://sbmlabs.com/blog/brute-force_ldap_accounts_with_patator/)
 
 ## Port 443 - HTTPS
 
