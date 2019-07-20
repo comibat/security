@@ -35,7 +35,7 @@
     * [Port Scanning](port_scanning.md)
 * [Vulnerability analysis](vulnerability_analysi1s.md)
   * [Non-HTTP Vulnerabilities](server-side-vulnerabilities.md)
-    * [Common ports\/services and how to use them](list_of_common_ports.md)
+    * [Common ports/services and how to use them](list_of_common_ports.md)
     * [Port Knocking](port_knocking.md)
   * [HTTP - Web Vulnerabilities](web-services.md)
     * [Common Web-services](common_web-services.md)
