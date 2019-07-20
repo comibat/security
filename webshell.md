@@ -8,6 +8,15 @@ You have access to different kinds of webshells on Kali here:
 /usr/share/webshells
 ```
 
+And a lot more here:
+
+```
+/usr/share/laudanum/
+
+root@kali:/usr/share/laudanum# ls
+asp  aspx  cfm  helpers  jsp  php  README  wordpress
+```
+
 ## PHP
 
 This code can be injected into pages that use php.
