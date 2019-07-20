@@ -1,4 +1,4 @@
-# Common ports\/services and how to use them
+# Common ports/services and how to use them
 
 I will try to make this chapter into a reference library. So that you can just check in this chapter to see common ways to exploit certain common services. I will only discuss the most common, since there are quite a few.
 
