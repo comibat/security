@@ -373,6 +373,12 @@ ls -l /usr/share/nmap/scripts/smb*
 nmap -p 139,445 192.168.1.1/24 --script smb-enum-shares.nse smb-os-discovery.nse
 ```
 
+### Scanning with smbmap
+
+```
+smbmap -H 192.168.0.88
+```
+
 ### nbtscan
 
 ```
