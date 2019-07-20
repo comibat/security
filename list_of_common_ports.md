@@ -375,6 +375,8 @@ nmap -p 139,445 192.168.1.1/24 --script smb-enum-shares.nse smb-os-discovery.nse
 
 ### Scanning with smbmap
 
+You can use this tool to search for files. It can do it recursively!
+
 ```
 smbmap -H 192.168.0.88
 ```
