@@ -379,11 +379,6 @@ You can use this tool to search for files. It can do it recursively!
 
 ```
 smbmap -H 192.168.0.88
-```
-
-recursive search:
-
-```
 smbmap -H 192.168.0.80 -R --depth 5
 ```
 
