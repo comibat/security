@@ -430,7 +430,7 @@ SNMP protocols 1,2 and 2c does not encrypt its traffic. So it can be intercepted
 
 SNMP is used to manage devices on a network. It has some funny terminology. For example, instead of using the word password the word community is used instead. But it is kind of the same thing. A common community-string/password is public.
 
-You can have read-only access to the snmp.Often just with the community string `public`. 
+You can have read-only access to the snmp. Often just with the community string `public`. 
 
 Common community strings
 ```
@@ -443,7 +443,7 @@ Here is a longer list of common community strings: https://github.com/danielmies
 
 ### MIB - Management information base
 
-SNMP stores all teh data in the Management Information Base. The MIB is a database that is organized as a tree. Different branches contains different information. So one branch can be username information, and another can be processes running. The "leaf" or the endpoint is the actual data. If you have read-access to the database you can read through each endpoint in the tree. This can be used with snmpwalk. It walks through the whole database tree and outputs the content.
+SNMP stores all tech data in the Management Information Base. The MIB is a database that is organized as a tree. Different branches contains different information. So one branch can be username information, and another can be processes running. The "leaf" or the endpoint is the actual data. If you have read-access to the database you can read through each endpoint in the tree. This can be used with snmpwalk. It walks through the whole database tree and outputs the content.
 
 #### snmpwalk
 ```
@@ -487,8 +487,19 @@ With onesixtyone you can test for open ports but also brute force community stri
 I have had more success using onesixtyone than using nmap. So better use both.
 
 ```
+onesixtyone (options) <host> <community>
+
+Where:
+
+    host is the IP address of the system we are targeting
+    community is either public or private
+```
 
 ```
+onesixtyone -c dict.txt 192.168.1.119
+onesixtyone -c /root/anotherwordlist 192.168.1119 public
+```
+[onesixtyone tutorial](https://null-byte.wonderhowto.com/how-to/hack-like-pro-crack-private-public-snmp-passwords-using-onesixtyone-0150332/)
 
 ### Metasploit
 
@@ -633,13 +644,13 @@ sqsh -S 192.168.1.101 -U sa
 # Execute commands
 
 ```bash
-# To execute the date command to the following after logging in
+# To execute the date command do the following after logging in
 xp_cmdshell 'date'
 go
 ```
 
 
-Many o the scanning modules in metasploit requires authentication. But some do not.
+Many of the scanning modules in metasploit requires authentication. But some do not.
 
 ```
 use auxiliary/scanner/mssql/mssql_ping
@@ -774,7 +785,7 @@ https://infamoussyn.com/2014/07/11/gaining-a-root-shell-using-mysql-user-defined
 
 ### Finding passwords to mysql
 
-You might gain access to a shell by uploading a reverse-shell. And then you need to escalate your privilege. One way to do that is to look into the databse and see what users and passwords that are available. Maybe someone is resuing a password?
+You might gain access to a shell by uploading a reverse-shell. And then you need to escalate your privilege. One way to do that is to look into the databse and see what users and passwords that are available. Maybe someone is reusing a password?
 
 So the first step is to find the login-credencials for the database. Those are usually found in some configuration-file oon the web-server. For example, in joomla they are found in:
 ```
