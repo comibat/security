@@ -81,6 +81,18 @@ $ stty raw -echo
 $ fg
 
 # In reverse shell
+$ export TERM=xterm-256color
+
+# optionally, if you have troubles using term, you can reset it completely and set it again
+# to get information about the TERM
+$ echo $TERM
+xterm-256color
+$ stty -a
+speed 38400 baud; rows 24; columns 80; line=0;
+intr=\^C; ...
+...
+# you need previous information to set new term
+# In reverse shell
 $ reset
 $ export SHELL=bash
 $ export TERM=xterm-256color
