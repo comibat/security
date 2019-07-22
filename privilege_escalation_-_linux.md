@@ -200,10 +200,16 @@ find / -perm -u=s -type f 2>/dev/null
 find / -perm -g=s -type f 2>/dev/null
 ```
 
+### Abusing applications to get the root shell _[UPDATE-07-2019]_ 
+
+GTFOBins is a curated list of Unix binaries that can be exploited by an attacker to bypass local security restrictions
+
+[https://gtfobins.github.io/](https://gtfobins.github.io/)
+
+
 ### Abusing sudo-rights
 
 If you have a limited shell that has access to some programs using `sudo` you might be able to escalate your privileges with. Any program that can write or overwrite can be used. For example, if you have sudo-rights to `cp` you can overwrite `/etc/shadow` or `/etc/sudoers` with your own malicious file.
-
 
 `awk`
 
