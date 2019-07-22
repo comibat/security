@@ -503,14 +503,23 @@ run post/windows/gather/enum_logged_on_users
 run post/windows/gather/checkvm
 ```
 
+## Abusing windows' valid binaries _[UPDATE 07-2019]_
+
+[https://lolbas-project.github.io/#](https://lolbas-project.github.io/#)
+
+[https://github.com/LOLBAS-Project/LOLBAS](https://github.com/LOLBAS-Project/LOLBAS)
+
+[https://github.com/LOLBAS-Project/LOLBAS-Project.github.io](https://github.com/LOLBAS-Project/LOLBAS-Project.github.io)
+
+
 ## References
 
 
-[pentest.blog: windows-privilege-escalation-methods-for-pentesters](https://pentest.blog/windows-privilege-escalation-methods-for-pentesters/)
+[pentest.blog: windows-privilege-escalation-methods-for-pentesters](https://pentest.blog/windows-privilege-escalation-methods-for-pentesters/) _[UPDATE 07-2019]_
 
-[lpeworkshop](https://github.com/comibat/lpeworkshop)
+[lpeworkshop](https://github.com/comibat/lpeworkshop) _[UPDATE 07-2019]_
 
-[OSCP-Methodology-EnVX7VSiNGZ2K2QxCZD7Q](https://paper.dropbox.com/doc/OSCP-Methodology-EnVX7VSiNGZ2K2QxCZD7Q)
+[OSCP-Methodology-EnVX7VSiNGZ2K2QxCZD7Q](https://paper.dropbox.com/doc/OSCP-Methodology-EnVX7VSiNGZ2K2QxCZD7Q) _[UPDATE 07-2019]_
 
 ---
 
