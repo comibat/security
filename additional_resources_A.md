@@ -12,6 +12,10 @@ https://paper.dropbox.com/doc/OSCP-Methodology-EnVX7VSiNGZ2K2QxCZD7Q
 
 https://github.com/nixawk/pentest-wiki/blob/master/3.Exploitation-Tools/Network-Exploitation/ports_number.md
 
+## OWASP - cheatsheet series
+
+https://cheatsheetseries.owasp.org/
+
 
 # Unconfirmed good:
 
