@@ -112,6 +112,7 @@
 * [Wifi](wifi.md)
   * [WEP](wep.md)
   * [WPS](wps.md)
+  * [tools](wifi-tools.md)
 * [Physical access to machine](physical_access_to_machine.md)
 * [Literature](littearature.md)
 * [Additional Resources](additional_resources_A.md)
