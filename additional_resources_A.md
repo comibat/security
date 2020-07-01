@@ -1,3 +1,10 @@
+# Updates:
+
+| date | name | description | comment |
+| --- | --- | --- | --- |
+| 07/2020 | HackTricks | Collection of trick/technique/whatever learnt in CTFs, real life apps and reading researches and news | [Link^](https://book.hacktricks.xyz) |
+
+
 # Confirmed good:
 
 ## Priv Esc
