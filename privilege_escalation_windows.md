@@ -351,6 +351,10 @@ There is also a metasploit module for this is: exploit/windows/local/trusted\_se
 
 ## DLL hijacking
 
+| Date | Info | Link |
+| --- | --- | --- |
+| 07/2020 | DLL hijacking & UAC bypass | https://www.wietzebeukema.nl/blog/hijacking-dlls-in-windows |
+
 Most of the executables are using dll. If a service that we're attacking olso uses dll, there is a chance to add or replace existing dll with a malitious one and get the privilege escalation.
 
 To check which dlls are used by exe, first copy the exe to kali and use **objdump** tool from **linux**:
