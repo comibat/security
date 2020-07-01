@@ -89,6 +89,7 @@
   * [Privilege Escalation - Linux](privilege_escalation_-_linux.md)
     * [Priv Esc - Secial Exploits](privilege_escalation_linux-special_exploits.md)
   * [Privilege Escalation - Windows](privilege_escalation_windows.md)
+    * [Priv Esc - Active Directory](privilege_escalation_windows_active_directory.md)
   * [Privilege Escalation - Powershell](privilege-escalation-powershell.md)
   * [Escaping Restricted Shell](escaping_restricted_shell.md)
   * [Bypassing antivirus](bypassing_antivirus.md)
