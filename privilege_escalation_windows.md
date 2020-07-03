@@ -2,8 +2,8 @@
 
 | date | name | section | anchor |
 | --- | --- | --- | --- |
-| 07/2020 | DLL Hijacking & UAC Bypass | DLL Hijacking | [jump](#dll_hijacking) |
-| 07/2020 | DLL Proxying | DLL Hijacking | [jump](#dll_hijacking) |
+| 07/2020 | DLL Hijacking & UAC Bypass | DLL Hijacking | [jump](#dll-hijacking) |
+| 07/2020 | DLL Proxying | DLL Hijacking | [jump](#dll-hijacking) |
 
 # Privilege Escalation Windows
 
