@@ -1,3 +1,10 @@
+# Updates
+
+| date | name | section | anchor |
+| --- | --- | --- | --- |
+| 07/2020 | DLL Hijacking & UAC Bypass | DLL Hijacking | [jump](#dll_hijacking) |
+| 07/2020 | DLL Proxying | DLL Hijacking | [jump](#dll_hijacking) |
+
 # Privilege Escalation Windows
 
 We now have a low-privileges shell that we want to escalate into a privileged shell.
@@ -351,9 +358,10 @@ There is also a metasploit module for this is: exploit/windows/local/trusted\_se
 
 ## DLL hijacking
 
-| Date | Info | Link |
-| --- | --- | --- |
-| 07/2020 | DLL hijacking & UAC bypass | https://www.wietzebeukema.nl/blog/hijacking-dlls-in-windows |
+| date | name | description | comment | link |
+| --- | --- | --- | --- | --- |
+| 07/2020 | DLL hijacking & UAC bypass | Find which DLL's are used by .exe; Create DLL with the same fingerprint exported; Bypass UAC in some cases | DLL Hijacking | [link^](https://www.wietzebeukema.nl/blog/hijacking-dlls-in-windows) |
+| 07/2020 | DLL proxying | Intercept and/or proxy calls to DLL's exported functions | DLL Proxy | [link^](https://dl.packetstormsecurity.net/papers/win/intercept_apis_dll_redirection.pdf) |
 
 Most of the executables are using dll. If a service that we're attacking olso uses dll, there is a chance to add or replace existing dll with a malitious one and get the privilege escalation.
 
