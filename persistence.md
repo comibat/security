@@ -1,3 +1,10 @@
+# Updates:
+
+| date | name | description | comment | link |
+| --- | --- | --- | --- | --- |
+| 07/2020 | Windows persistence | 25 techniques for persistence on windows | Windows persistence | [link^](https://pentestlab.blog/methodologies/red-teaming/persistence/) |
+
+
 # Persistence - Rootkit - Backdoor
 
 So if you manage to compromise a system you need to make sure that you do not lose the shell. If you have used an exploit that messes with the machine the user might want to reboot, and if the user reboots you will lose your shell.
