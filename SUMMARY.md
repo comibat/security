@@ -40,7 +40,7 @@
   * [HTTP - Web Vulnerabilities](web-services.md)
     * [Common Web-services](common_web-services.md)
     * Authentication
-      * OAuth
+      * [OAuth](oauth.md)
     * [Session Management](session-management.md)
       * Ses
     * [Broken Authentication or Session Management](broken_authentication_or_session_management.md)
