@@ -35,7 +35,7 @@ There are multiple different grant types which change the OAuth flow. Initially,
 
 This diagram succinctly illustrates a typical Authorization Code Grant flow:
 
-![Diagram Credit: https://arxiv.org/abs/1601.01229v4](https://github.com/comibat/security/images/OAuth_Auth-Code-flow.png "OAuth code flow")
+![Diagram Credit: https://arxiv.org/abs/1601.01229v4](../images/OAuth_Auth-Code-flow.png "OAuth code flow")
 
 In this diagram, the **RP** is the website you will be testing, and the **IDP** is the identity provider who owns the user’s resources. Let’s walk through each step of the diagram with a bit of hypothetical commentary so the unaltered flow is understood.
 
