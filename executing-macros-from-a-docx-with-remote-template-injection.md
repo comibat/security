@@ -1,9 +1,8 @@
 # Executing Macros From a DOCX With Remote Template Injection
 
-- [July 18,2018](http://blog.redxorblue.com/2018/07/executing-macros-from-docx-with-remote.html)
+Source: [July 18,2018 - http://blog.redxorblue.com/2018/07/executing-macros-from-docx-with-remote.html](http://blog.redxorblue.com/2018/07/executing-macros-from-docx-with-remote.html)
 
 ## The What:
----------
 
 In this post, I want to talk about and show off a code execution method
 which was shown to me a little while back. This method allows one to
@@ -17,7 +16,6 @@ post will detail how to use this method to download a macro-enabled
 template over HTTP(S) in a proxy-aware method into a DOCX document.
 
 ## The Why:
---------
 
 The benefit of this attack versus a traditional macro enabled document
 is multidimensional. When executing a phishing attack against a target,
@@ -38,7 +36,6 @@ to pull down the malicious template.
 guide on creating modrewrite rules for this type of evasion in his [Red Team Infrastructure Wiki](https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki).  
 
 ## The How:
---------
 
 To start this attack, we need to create two different files. The first
 will be the macro-enabled template, or .dotm file, which will contain a
@@ -66,6 +63,8 @@ execute the macro.
 For this attack to work, we need to create a macro-enabled Word template
 (.dotm file extension) which contains our malicious Empire macro. Open
 up Word and make the Developer tab on the ribbon visible:
+
+[![](images/executing-macros-from-a-docx-with-remote-template-injection-1.png)](images/executing-macros-from-a-docx-with-remote-template-injection-1.png)
 
 [![](https://4.bp.blogspot.com/-wj0jD7ksex8/W0_QJYUUecI/AAAAAAAAAJI/9VIllbwechQf79x1a2Tjksb0S82TKVV0ACLcBGAs/s640/1.png)](https://4.bp.blogspot.com/-wj0jD7ksex8/W0_QJYUUecI/AAAAAAAAAJI/9VIllbwechQf79x1a2Tjksb0S82TKVV0ACLcBGAs/s1600/1.png)
 
@@ -194,7 +193,7 @@ various types of delegation work in-depth, as there are so…
 
 ## [Red Teaming Made Easy with Exchange Privilege Escalation and PowerPriv](http://blog.redxorblue.com/2019/01/red-teaming-made-easy-with-exchange.html)
 
-- [January 31,2019](http://blog.redxorblue.com/2019/01/red-teaming-made-easy-with-exchange.html "permanent link")
+- [January 31, 2019](http://blog.redxorblue.com/2019/01/red-teaming-made-easy-with-exchange.html "permanent link")
 
 TL;DR: A new take on the recently released Exchange privilege escalation
 attack allowing for remote usage without needing to drop files to disk,
