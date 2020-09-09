@@ -66,15 +66,13 @@ up Word and make the Developer tab on the ribbon visible:
 
 [![](images/executing-macros-from-a-docx-with-remote-template-injection-1.png)](images/executing-macros-from-a-docx-with-remote-template-injection-1.png)
 
-[![](https://4.bp.blogspot.com/-wj0jD7ksex8/W0_QJYUUecI/AAAAAAAAAJI/9VIllbwechQf79x1a2Tjksb0S82TKVV0ACLcBGAs/s640/1.png)](https://4.bp.blogspot.com/-wj0jD7ksex8/W0_QJYUUecI/AAAAAAAAAJI/9VIllbwechQf79x1a2Tjksb0S82TKVV0ACLcBGAs/s1600/1.png)
-
-[![](https://1.bp.blogspot.com/-0A22d9qqWyk/W0_QNpEdu5I/AAAAAAAAAJc/kcHdJA12v7YAc270hoCLh82lCg9XfsifwCLcBGAs/s640/2.png)](https://1.bp.blogspot.com/-0A22d9qqWyk/W0_QNpEdu5I/AAAAAAAAAJc/kcHdJA12v7YAc270hoCLh82lCg9XfsifwCLcBGAs/s1600/2.png)
+[![](images/executing-macros-from-a-docx-with-remote-template-injection-2.png)](images/executing-macros-from-a-docx-with-remote-template-injection-2.png)
 
 Then open up the Visual Basic editor from the Developer tab and
 double-click on ThisDocument under the current project to open up the
 code window. Paste in your macro code into this window:
 
-[![](https://4.bp.blogspot.com/-DeCtZMbFVXw/W0_QObTQd7I/AAAAAAAAAJk/NZQpG6VzFgs_vDlzJcZ5l01OXS_YHGYcACLcBGAs/s640/3.png)](https://4.bp.blogspot.com/-DeCtZMbFVXw/W0_QObTQd7I/AAAAAAAAAJk/NZQpG6VzFgs_vDlzJcZ5l01OXS_YHGYcACLcBGAs/s1600/3.png)
+[![](images/executing-macros-from-a-docx-with-remote-template-injection-3.png)](images/executing-macros-from-a-docx-with-remote-template-injection-3.png)
 
 
 Give the template a name and save the file as a .dotm format. Please
@@ -82,7 +80,7 @@ note that the name is usually briefly visible to the user, so I
 recommend something seemingly benign such as ‘InvoiceTemplate.dotm’:
 
 
-[![](https://3.bp.blogspot.com/-g27okNg98ag/W0_QOKF8f2I/AAAAAAAAAJg/JgTnGlHXEdcyPV-E6XPz9hJY8TWlQmh2ACLcBGAs/s640/4.png)](https://3.bp.blogspot.com/-g27okNg98ag/W0_QOKF8f2I/AAAAAAAAAJg/JgTnGlHXEdcyPV-E6XPz9hJY8TWlQmh2ACLcBGAs/s1600/4.png)
+[![](images/executing-macros-from-a-docx-with-remote-template-injection-4.png)](images/executing-macros-from-a-docx-with-remote-template-injection-4.png)
 
 
 Since I am just using the default macro from PowerShell Empire, it
@@ -95,9 +93,9 @@ At this point, I tend to like to validate my template and macro by just
 double-clicking on the document and making sure that I get the ‘Enable
 Content’ button and that I get an agent when I click on it:
 
-[![](https://2.bp.blogspot.com/-IDE2KEM_Fac/W0_QOt7L6CI/AAAAAAAAAJo/tWXN8xY7LI4CNrO4n1EWQO6nFXZ4xEeFgCLcBGAs/s640/5.png)](https://2.bp.blogspot.com/-IDE2KEM_Fac/W0_QOt7L6CI/AAAAAAAAAJo/tWXN8xY7LI4CNrO4n1EWQO6nFXZ4xEeFgCLcBGAs/s1600/5.png)
+[![](images/executing-macros-from-a-docx-with-remote-template-injection-5.png)](images/executing-macros-from-a-docx-with-remote-template-injection-5.png)
 
-[![](https://4.bp.blogspot.com/-5fH39c0oQKA/W0_QOmcei0I/AAAAAAAAAJs/GnlPsJK6CwUrNQLadqWVyNbfXzwoH9cigCLcBGAs/s640/6.png)](https://4.bp.blogspot.com/-5fH39c0oQKA/W0_QOmcei0I/AAAAAAAAAJs/GnlPsJK6CwUrNQLadqWVyNbfXzwoH9cigCLcBGAs/s1600/6.png)
+[![](images/executing-macros-from-a-docx-with-remote-template-injection-6.png)](images/executing-macros-from-a-docx-with-remote-template-injection-6.png)
 
 It works!
 
@@ -108,7 +106,7 @@ download and load in the template from a remote resource. The easiest
 way in which I have found to do this is to create a .docx document from
 one of the provided Word templates, then just modify the target:
 
-[![](https://1.bp.blogspot.com/-OUQJEY14_NM/W0_QQHRA_eI/AAAAAAAAAJ4/XGHxmcBemuopEn_0xa5wX1XzG4VuLa4VACLcBGAs/s640/7.png)](https://1.bp.blogspot.com/-OUQJEY14_NM/W0_QQHRA_eI/AAAAAAAAAJ4/XGHxmcBemuopEn_0xa5wX1XzG4VuLa4VACLcBGAs/s1600/7.png)
+[![](images/executing-macros-from-a-docx-with-remote-template-injection-7.png)](images/executing-macros-from-a-docx-with-remote-template-injection-7.png)
 
 Modify the document as necessary to meet your phishing scenario in order
 to get your target user to click the ‘Enable Content’ button if it shows
@@ -128,7 +126,7 @@ Navigate to the ‘.\\word\\\_rels\\’ folder and open up the
 ‘settings.xml.rels’ file using a text editor such as Notepad:
 
 
-[![](https://3.bp.blogspot.com/-6fE7ZXJkAJU/W0_QPq9WkuI/AAAAAAAAAJ0/M_RLHBJUN4EWygJWI9D-tBPD149QLktrQCLcBGAs/s640/8.png)](https://3.bp.blogspot.com/-6fE7ZXJkAJU/W0_QPq9WkuI/AAAAAAAAAJ0/M_RLHBJUN4EWygJWI9D-tBPD149QLktrQCLcBGAs/s1600/8.png)
+[![](images/executing-macros-from-a-docx-with-remote-template-injection-8.png)](images/executing-macros-from-a-docx-with-remote-template-injection-8.png)
 
 
 The Relationship tag containing a Type with attachedTemplate will be the
@@ -136,32 +134,32 @@ setting that tells Word where to load in your template from when you
 open that .docx. Currently, this is loading in a template from the local
 file system:
 
-[![](https://3.bp.blogspot.com/-_Fq3JS9E_1g/W0_QPlDLJLI/AAAAAAAAAJw/aC7EoxQ2mfwKJWkpItv_JYRzLDDnZdYqQCLcBGAs/s640/9.png)](https://3.bp.blogspot.com/-_Fq3JS9E_1g/W0_QPlDLJLI/AAAAAAAAAJw/aC7EoxQ2mfwKJWkpItv_JYRzLDDnZdYqQCLcBGAs/s1600/9.png)
+[![](images/executing-macros-from-a-docx-with-remote-template-injection-9.png)](images/executing-macros-from-a-docx-with-remote-template-injection-9.png)
 
 The key is that this value will accept web URLs. We can modify the
 Target value to be a remote location. In this case, I host my
 macro-enabled template on GitHub:
 
-[![](https://1.bp.blogspot.com/--0V11mdfHS8/W0_QM7Eu7zI/AAAAAAAAAJQ/FOAkF0i9IKURl-M2o53Oh5OCuUISBPjNQCLcBGAs/s640/10.png)](https://1.bp.blogspot.com/--0V11mdfHS8/W0_QM7Eu7zI/AAAAAAAAAJQ/FOAkF0i9IKURl-M2o53Oh5OCuUISBPjNQCLcBGAs/s1600/10.png)
+[![](images/executing-macros-from-a-docx-with-remote-template-injection-10.png)](images/executing-macros-from-a-docx-with-remote-template-injection-10.png)
 
 Once we save this file, we can zip the contents back up and rename the
 file back to a .docx. The next time that we open up our .docx, we can
 see that the file is reaching out over HTTPS to our hosting service to
 download the template:
 
-[![](https://4.bp.blogspot.com/-_gx3V8977S0/W0_QM7qXZKI/AAAAAAAAAJM/qkaL6LjbVsUu973QKhOOfL8pPy6o4GP8gCLcBGAs/s640/11.png)](https://4.bp.blogspot.com/-_gx3V8977S0/W0_QM7qXZKI/AAAAAAAAAJM/qkaL6LjbVsUu973QKhOOfL8pPy6o4GP8gCLcBGAs/s1600/11.png)
+[![](images/executing-macros-from-a-docx-with-remote-template-injection-11.png)](images/executing-macros-from-a-docx-with-remote-template-injection-11.png)
 
 And now our .docx file has a macro loaded in it and is allowed to run
 macros:
 
-[![](https://2.bp.blogspot.com/-u3ORB1z-ZLY/W0_QMycs6BI/AAAAAAAAAJU/yxnz3hnjFMkS1ek_BJRfyGwvYL6oGgVZgCLcBGAs/s640/12.png)](https://2.bp.blogspot.com/-u3ORB1z-ZLY/W0_QMycs6BI/AAAAAAAAAJU/yxnz3hnjFMkS1ek_BJRfyGwvYL6oGgVZgCLcBGAs/s1600/12.png)
+[![](images/executing-macros-from-a-docx-with-remote-template-injection-12.png)](images/executing-macros-from-a-docx-with-remote-template-injection-12.png)
 
 There is a new pop-up to the user, but it does not affect the payload.
 This is just due to the fact that .docx files are not intended to
 contain macros. If the user clicks ‘Enable Content’ or has macros set to
 run automatically, then we get our agents:
 
-[![](https://2.bp.blogspot.com/-J99eokGALuE/W0_QNW6ijBI/AAAAAAAAAJY/gkU2Dco5SRw9ouFv8IrxoUI3iibf4KFGgCLcBGAs/s640/13.png)](https://2.bp.blogspot.com/-J99eokGALuE/W0_QNW6ijBI/AAAAAAAAAJY/gkU2Dco5SRw9ouFv8IrxoUI3iibf4KFGgCLcBGAs/s1600/13.png)\
+[![](images/executing-macros-from-a-docx-with-remote-template-injection-13.png)](images/executing-macros-from-a-docx-with-remote-template-injection-13.png)
 
  Now prep your phishing email, send the .docx to the user, and wait for
 the call backs!
@@ -193,7 +191,7 @@ various types of delegation work in-depth, as there are so…
 
 ## [Red Teaming Made Easy with Exchange Privilege Escalation and PowerPriv](http://blog.redxorblue.com/2019/01/red-teaming-made-easy-with-exchange.html)
 
-- [January 31, 2019](http://blog.redxorblue.com/2019/01/red-teaming-made-easy-with-exchange.html "permanent link")
+- [January 31,2019](http://blog.redxorblue.com/2019/01/red-teaming-made-easy-with-exchange.html "permanent link")
 
 TL;DR: A new take on the recently released Exchange privilege escalation
 attack allowing for remote usage without needing to drop files to disk,
