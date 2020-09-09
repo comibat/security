@@ -1,3 +1,9 @@
+# Updates:
+
+| date | name | description | comment | link |
+| --- | --- | --- | --- | --- |
+| 09/2020 | DOCX macro execution - remote template injection | Executing macros from a docx with remote template injection| docs, remote template injection | [docx remote template injection](#docx-remote-template-injection) |
+
 # Social Engineering - Phishing
 
 Gaining initial access to a network is often done using different kinds of social engineering attacks.
@@ -59,6 +65,10 @@ The most common tool for social engineering is to use Social Engineering Toolkit
 ```
 setoolkit
 ```
+
+## docx remote template injection
+
+[Executing macros from a docx with remote template injection](executing-macros-from-a-docx-with-remote-template-injection.md)
 
 ## Spear phishing
 
