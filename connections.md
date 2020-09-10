@@ -192,7 +192,7 @@ for ip in ips:
 
 ## Django db
 
-To connect to a database of a running app, you need to set up environment variable DJANGO_SETTINGS_MODULE to point to settings.py of the running app. After that start python shell and set settings.DEBUG to True (might not be needed - TODO: check) and then use introspection to list existing tables and raw query to get the data.
+To connect to a database of a running app, you need to set up environment variable DJANGO_SETTINGS_MODULE to point to settings.py of the running app. After that start python shell and set settings.DEBUG to True (needed only sometimes) and then use introspection to list existing tables and raw query to get the data.
 
 - set env variable DJANGO_SETTINGS_MODULE to point to settings.py of the running app:
 
@@ -201,13 +201,21 @@ export DJANGO_SETTINGS_MODULE=<app_name>.settings
 ```
 
 ```python
+# set debug to True - update: not needed in most cases!
 from django.conf import settings
 settings.DEBUG=True
 
+# connect to database and get table names
 from django.db import connection
 connection.introspection.table_names()
 
+# to fetch object:
 connection.cursor().execute("select * from <table_name>")
+# to fetch one row:
+connection.cursor().execute("select * from <table_name>").fetchone()
+# to fetch one row:
+connection.cursor().execute("select * from <table_name>").fetchall()
+
 ```
 
 ## Client/Server using sockets
