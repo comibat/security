@@ -1,3 +1,9 @@
+# Updates:
+
+| date | name | description | comment | link |
+| --- | --- | --- | --- | --- |
+| 09/2020 | Django DB | Connect to production DB running under Django framework | Django DB production | [Django DB](#django-db) |
+
 # Useful Scripts
 
 ## Make Request
@@ -182,6 +188,26 @@ for ip in ips:
 
 
     s.close()
+```
+
+## Django db
+
+To connect to a database of a running app, you need to set up environment variable DJANGO_SETTINGS_MODULE to point to settings.py of the running app. After that start python shell and set settings.DEBUG to True (might not be needed - TODO: check) and then use introspection to list existing tables and raw query to get the data.
+
+- set env variable DJANGO_SETTINGS_MODULE to point to settings.py of the running app:
+
+```bash
+export DJANGO_SETTINGS_MODULE=<app_name>.settings
+```
+
+```python
+from django.conf import settings
+settings.DEBUG=True
+
+from django.db import connection
+connection.introspection.table_names()
+
+connection.cursor().execute("select * from <table_name>")
 ```
 
 ## Client/Server using sockets
